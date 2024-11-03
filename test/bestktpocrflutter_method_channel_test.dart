@@ -1,11 +1,10 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:bestktpocrflutter/bestktpocrflutter_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelBestktpocrflutter platform = MethodChannelBestktpocrflutter();
+  //MethodChannelBestktpocrflutter platform = MethodChannelBestktpocrflutter();
   const MethodChannel channel = MethodChannel('bestktpocrflutter');
 
   setUp(() {
@@ -21,7 +20,7 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
   });
 
-  test('getPlatformVersion', () async {
-   // expect(await platform.getPlatformVersion(), '42');
-  });
+  // test('getPlatformVersion', () async {
+  //  // expect(await platform.getPlatformVersion(), '42');
+  // });
 }
