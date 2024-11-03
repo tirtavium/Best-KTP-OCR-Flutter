@@ -9,9 +9,13 @@ class MethodChannelBestktpocrflutter extends BestktpocrflutterPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('bestktpocrflutter');
 
+
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> scanKTP(Uint8List image) async {
+    final jsonString = await methodChannel.invokeMethod<String>('scanKTP',{'ktp':image});
+    return jsonString;
   }
+
+
+
 }

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'bestktpocrflutter_method_channel.dart';
@@ -23,7 +25,7 @@ abstract class BestktpocrflutterPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<String?> scanKTP(Uint8List image) {
+    throw UnimplementedError('scanKTP() has not been implemented.');
   }
 }

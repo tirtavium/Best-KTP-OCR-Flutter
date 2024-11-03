@@ -1,5 +1,6 @@
 name: bestktpocrflutter_example
 description: Demonstrates how to use the bestktpocrflutter plugin.
+homepage: https://github.com/tirtavium/Best-KTP-OCR-Flutter
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

@@ -1,7 +1,7 @@
 name: bestktpocrflutter
-description: A new Flutter plugin project.
+description: KTP OCR for Android(mlkit) and iOS(vision), make this small size compare to other.
 version: 0.0.1
-homepage:
+homepage: https://github.com/tirtavium/Best-KTP-OCR-Flutter
 
 environment:
   sdk: '>=3.1.1 <4.0.0'
