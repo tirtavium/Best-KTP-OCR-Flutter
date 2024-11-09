@@ -3,7 +3,7 @@
 # Run `pod lib lint bestktpocrflutter.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'bestktpocrflutter'
+  s.name             = 'best_ktp_ocr_flutter'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC

@@ -14,7 +14,12 @@ public class BestktpocrflutterPlugin: NSObject, FlutterPlugin {
       result("iOS " + UIDevice.current.systemVersion)
     case "scanKTP":
         if let args = call.arguments as? Dictionary<String, Any> {
-            if let imageData = args["ktp"] as? Data, let image = UIImage(data: imageData) {
+    
+            guard let byteData = args["ktp"] as? FlutterStandardTypedData else {
+                result("ktp must in Uint8List format")
+                return
+            }
+            if let image = UIImage(data: Data([UInt8](byteData.data))) {
                 let ocrLibrary = OCRforEKTPLibrary()
                 let ocrResult = ocrLibrary.scanEKTP(image)
                 let ktpData: [String: String] = [
@@ -38,7 +43,7 @@ public class BestktpocrflutterPlugin: NSObject, FlutterPlugin {
                 let ktpJsonString = String(data: ktpJsonData, encoding: .utf8)!
                 result(ktpJsonString)
             }else{
-                result("ktp must data format")
+                result("ktp must in data format")
             }
         }else{
             result("no ktp found")

@@ -1,15 +1,17 @@
 package id.co.tirtavium.bestktpocrflutter
 
-import androidx.annotation.NonNull
-
+import OCRforEKTPLibrary
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.AsyncTask
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import OCRforEKTPLibrary
-import android.graphics.Bitmap
 import org.json.JSONObject
+import java.util.concurrent.Executors
+
 
 /** BestktpocrflutterPlugin */
 class BestktpocrflutterPlugin: FlutterPlugin, MethodCallHandler {
@@ -28,36 +30,42 @@ class BestktpocrflutterPlugin: FlutterPlugin, MethodCallHandler {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else if (call.method == "scanKTP"){
-      val image: Bitmap? = call.argument("ktp")
+      Executors.newSingleThreadExecutor().execute(Runnable {
+        // todo: do your background tasks
+      val bytes =  call.argument<ByteArray>("ktp");
+      val image: Bitmap? = bytes?.let { BitmapFactory.decodeByteArray( bytes, 0, it.size) };
+      //val image: Bitmap? = call.argument("ktp")
       val scanner = OCRforEKTPLibrary()
       val ktp = image?.let {
         val ktpData = scanner.scanEKTP(image)
         val ktpJson = JSONObject("""
           {
-          "nik":${ktpData.nik}, 
-          "nama":${ktpData.nama},
-          "tempatLahir":${ktpData.tempatLahir},
-          "tanggalLahir:${ktpData.tglLahir},
-          "jenisKelamin":${ktpData.jenisKelamin}, 
-          "alamat":${ktpData.alamat},
-          "rtrw":${ktpData.rtrw},
-          "kelurahan:${ktpData.kelurahan},
-          "kecamatan":${ktpData.kecamatan},
-          "agama":${ktpData.agama},
-          "statusPerkawinan:${ktpData.statusPerkawinan},
-          "pekerjaan":${ktpData.pekerjaan},
-          "kewarganegaraan":${ktpData.kewarganegaraan},
-          "provinsi:${ktpData.provinsi},
-          "kota:${ktpData.kabKot}
+          "nik":"${ktpData.nik}", 
+          "nama":"${ktpData.nama}",
+          "tempatLahir":"${ktpData.tempatLahir}",
+          "tanggalLahir":"${ktpData.tglLahir}",
+          "jenisKelamin":"${ktpData.jenisKelamin}", 
+          "alamat":"${ktpData.alamat}",
+          "rtrw":"${ktpData.rtrw}",
+          "kelurahan":"${ktpData.kelurahan}",
+          "kecamatan":"${ktpData.kecamatan}",
+          "agama":"${ktpData.agama}",
+          "statusPerkawinan":"${ktpData.statusPerkawinan}",
+          "pekerjaan":"${ktpData.pekerjaan}",
+          "kewarganegaraan":"${ktpData.kewarganegaraan}",
+          "provinsi":"${ktpData.provinsi}",
+          "kota":"${ktpData.kabKot}"
           }
           """.trimIndent())
-        result.success(ktpJson)
+          result.success(ktpJson.toString())
       }
-        result.error("404", "no ktp found","")
+
+      })
     }
     else {
       result.notImplemented()
     }
+
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {

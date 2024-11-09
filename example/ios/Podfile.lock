@@ -1,34 +1,41 @@
 PODS:
   - Best-iOS-KTP-OCR (1.0.0)
-  - bestktpocrflutter (0.0.1):
+  - best_ktp_ocr_flutter (0.0.1):
     - Best-iOS-KTP-OCR (= 1.0.0)
     - Flutter
   - Flutter (1.0.0)
   - integration_test (0.0.1):
     - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
-  - bestktpocrflutter (from `.symlinks/plugins/bestktpocrflutter/ios`)
+  - best_ktp_ocr_flutter (from `.symlinks/plugins/best_ktp_ocr_flutter/ios`)
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
 
 SPEC REPOS:
   trunk:
     - Best-iOS-KTP-OCR
 
 EXTERNAL SOURCES:
-  bestktpocrflutter:
-    :path: ".symlinks/plugins/bestktpocrflutter/ios"
+  best_ktp_ocr_flutter:
+    :path: ".symlinks/plugins/best_ktp_ocr_flutter/ios"
   Flutter:
     :path: Flutter
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
 
 SPEC CHECKSUMS:
   Best-iOS-KTP-OCR: b512c837e29ddc42d2ce43f60e48a672ed3371cb
-  bestktpocrflutter: 608990b8fbd3174da346992bf1ba4f0e59d4d228
+  best_ktp_ocr_flutter: 5c3682e1b7c69b971254f96c97c42ebe57dec6ed
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   integration_test: 13825b8a9334a850581300559b8839134b124670
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
 
 PODFILE CHECKSUM: 4f1c12611da7338d21589c0b2ecd6bd20b109694
 
