@@ -1,6 +1,6 @@
 name: best_ktp_ocr_flutter
 description: KTP OCR for Android(mlkit) and iOS(vision), smallest size compare to other KTP OCR.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/tirtavium/Best-KTP-OCR-Flutter
 
 environment:
